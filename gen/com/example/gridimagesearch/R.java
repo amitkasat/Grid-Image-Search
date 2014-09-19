@@ -35,19 +35,19 @@ public final class R {
         public static final int action_settings=0x7f090010;
         public static final int ad_src_flt=0x7f090004;
         public static final int btnSearch=0x7f090002;
-        public static final int button1=0x7f09000c;
-        public static final int color_filter=0x7f090007;
+        public static final int button1=0x7f09000d;
+        public static final int color_filter=0x7f090006;
         public static final int etQuery=0x7f090001;
-        public static final int etText=0x7f09000d;
+        public static final int etText=0x7f09000c;
         public static final int gvResults=0x7f090003;
         public static final int im_size=0x7f090005;
-        public static final int image_type=0x7f090009;
+        public static final int image_type=0x7f090008;
         public static final int ivImage=0x7f09000e;
         public static final int ivImageResult=0x7f090000;
         public static final int miSettings=0x7f090011;
         public static final int site_filter=0x7f09000b;
-        public static final int spinner1=0x7f090006;
-        public static final int spinner2=0x7f090008;
+        public static final int spinner1=0x7f090007;
+        public static final int spinner2=0x7f090009;
         public static final int spinner3=0x7f09000a;
         public static final int tvTitle=0x7f09000f;
     }

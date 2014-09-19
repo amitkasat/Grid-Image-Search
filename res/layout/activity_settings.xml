@@ -5,15 +5,18 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
+        android:id="@+id/ad_src_flt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ad_src_flt"
-        android:id="@+id/ad_src_flt"
-        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_alignBottom="@+id/ad_src_flt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/ad_src_flt"
-        android:gravity="center_vertical" />
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:text="@string/ad_src_flt"
+        android:textColor="#0000FF"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/im_size"
@@ -21,16 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/ad_src_flt"
-        android:layout_marginTop="40dp"
-        android:text="@string/im_size" />
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/im_size"
-        android:entries="@array/ImageSize"
-        android:layout_toRightOf="@+id/ad_src_flt" />
+        android:layout_marginTop="26dp"
+        android:text="@string/im_size"
+        android:layout_marginLeft="14dp"
+        android:textColor="#C71585"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/color_filter"
@@ -38,16 +36,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/spinner1"
-        android:layout_marginTop="50dp"
-        android:text="@string/color_filter" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinner1"
-        android:entries="@array/ColorFilter"
-        android:layout_below="@+id/color_filter" />
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="14dp" 
+        android:text="@string/color_filter"
+        android:textColor="#C71585"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/image_type"
@@ -55,16 +48,35 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/spinner2"
-        android:layout_marginTop="50dp"
-        android:text="@string/image_type" />
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="14dp"
+        android:text="@string/image_type"
+        android:textColor="#C71585"
+        android:textSize="22sp" />
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image_type" 
-        android:entries="@array/Type"
-        android:layout_toRightOf="@+id/ad_src_flt" />
+        android:layout_alignTop="@+id/image_type"
+        android:layout_toRightOf="@+id/image_type"
+        android:entries="@array/Type" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/color_filter"
+        android:layout_toRightOf="@+id/color_filter"
+        android:entries="@array/ColorFilter" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/im_size"
+        android:layout_toRightOf="@+id/im_size"
+        android:entries="@array/ImageSize" />
 
     <TextView
         android:id="@+id/site_filter"
@@ -72,26 +84,35 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/spinner3"
-        android:text="@string/site_filter" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/ad_src_flt"
-        android:onClick="onSubmit"
-        android:text="@string/button1" />
+        android:layout_marginTop="18dp"
+        android:text="@string/site_filter"
+        android:layout_marginLeft="14dp"
+        android:textColor="#C71585"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/etText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button1"
+        android:layout_alignTop="@+id/site_filter"
+        android:layout_toRightOf="@+id/site_filter"
+        android:ems="7"
         android:hint="@string/web"
-        android:singleLine="true"
         android:inputType="textShortMessage"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/site_filter"
-        android:ems="7" />
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ad_src_flt"
+        android:layout_below="@+id/etText"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/site_filter"
+        android:onClick="onSubmit"
+        android:text="@string/button1"
+        android:textColor="#0000FF"
+        android:textSize="20sp" />
 
 </RelativeLayout>

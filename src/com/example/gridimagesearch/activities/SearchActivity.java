@@ -57,13 +57,15 @@ public class SearchActivity extends Activity {
 		});
 	}
 
-	public void customLoadMoreDataFromApi(int offset) {
+	public void customLoadMoreDataFromApi(int page) {
 		// This method probably sends out a network request and appends new data
 		// items to your adapter.
 		// Use the offset value and add it as a parameter to your API request to
 		// retrieve paginated data.
 		// Deserialize API response and then construct new objects to append to
 		// the adapter
+		
+		onImageSearch(gvResults);
 	}
 
 	private void setupViews() {
@@ -113,10 +115,14 @@ public class SearchActivity extends Activity {
 
 	// Fired when the button is pressed (android:onClick property)
 	public void onImageSearch(View v) {
-		// Clears the arr
+		
+		if(v.getId() == R.id.btnSearch)
+		{
+		// Clears the array
 		imageResults.clear();
 		// Notifies the adapter
 		aImageResults.notifyDataSetChanged();
+		}
 		String query = etQuery.getText().toString();
 		Toast.makeText(this, "Search for: " + query, Toast.LENGTH_SHORT).show();
 		AsyncHttpClient client = new AsyncHttpClient();
