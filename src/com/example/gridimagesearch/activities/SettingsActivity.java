@@ -37,7 +37,7 @@ public class SettingsActivity extends Activity {
 		settings = (Settings) getIntent().getExtras().getSerializable("settings");
 		
 	}
-	
+	@Override
 	 public boolean onCreateOptionsMenu(Menu menu) {
 	        // Inflate the menu; this adds items to the action bar if it is present.
 	        getMenuInflater().inflate(R.menu.search, menu);
@@ -47,13 +47,16 @@ public class SettingsActivity extends Activity {
 	 
 	public void onSubmit(View v)
 	{
+		Toast.makeText(this,"Searchfor" + this.settings.imageType, Toast.LENGTH_SHORT).show();
 		settings.setValues(this.imageType.getSelectedItem().toString(), 
-				this.colorFilter.getSelectedItem().toString(), this.imageSize.getSelectedItem().toString(), 
+				this.colorFilter.getSelectedItem().toString(), 
+				this.imageSize.getSelectedItem().toString(), 
 				this.website.getText().toString());
-		//Toast.makeText(this,"Searchfor" + this.settings.imageType, Toast.LENGTH_SHORT).show();
+		
 		Intent i = new Intent();
 		i.putExtra("settings", settings);
 		setResult(RESULT_OK,i);
 		finish();
 	}
+	
 }

@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 public class Settings implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5321260817218224347L;
 	
 	public String imageType;

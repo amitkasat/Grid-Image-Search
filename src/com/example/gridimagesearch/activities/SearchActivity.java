@@ -38,6 +38,7 @@ public class SearchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 		setupViews();
+		settings = new Settings();
 		// Creates the data source
 		imageResults = new ArrayList<ImageResult>();
 		// Attaches the data source to an adapter
@@ -94,12 +95,7 @@ public class SearchActivity extends Activity {
 		return true;
 	}
 
-	public void onSettings(MenuItem menu) {
-		Intent data = new Intent(SearchActivity.this, SettingsActivity.class);
-		data.putExtra("settings", this.settings);
-		startActivityForResult(data,5);
-	}
-
+	
 	public void onActivityResult(int requestcode, int resultcode, Intent data) {
 		if (requestcode == 5) {
 			if (resultcode == RESULT_OK) {
@@ -107,10 +103,20 @@ public class SearchActivity extends Activity {
 			}
 		}
 	}
+	
+	public void onSettings(MenuItem menu) {
+		Intent data = new Intent(SearchActivity.this, SettingsActivity.class);
+		data.putExtra("settings", this.settings);
+		startActivityForResult(data,5);
+	}
+
 
 	// Fired when the button is pressed (android:onClick property)
 	public void onImageSearch(View v) {
-
+		// Clears the arr
+		imageResults.clear();
+		// Notifies the adapter
+		aImageResults.notifyDataSetChanged();
 		String query = etQuery.getText().toString();
 		Toast.makeText(this, "Search for: " + query, Toast.LENGTH_SHORT).show();
 		AsyncHttpClient client = new AsyncHttpClient();
@@ -136,7 +142,7 @@ public class SearchActivity extends Activity {
 				try {
 					imageResultsJson = response.getJSONObject("responseData")
 							.getJSONArray("results");
-					imageResults.clear(); // clear the existing images from the
+					//imageResults.clear(); // clear the existing images from the
 											// array in cases where its a new
 											// search
 					// When you make changes to the adapter, it does modify the
