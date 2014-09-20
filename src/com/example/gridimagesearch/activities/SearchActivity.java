@@ -65,7 +65,8 @@ public class SearchActivity extends Activity {
 		// Deserialize API response and then construct new objects to append to
 		// the adapter
 		
-		onImageSearch(gvResults);
+		search(gvResults, page);
+		
 	}
 
 	private void setupViews() {
@@ -115,6 +116,10 @@ public class SearchActivity extends Activity {
 
 	// Fired when the button is pressed (android:onClick property)
 	public void onImageSearch(View v) {
+		search(v, 0);
+	}
+	
+	public void search(View v, int page) {
 		
 		if(v.getId() == R.id.btnSearch)
 		{
@@ -136,7 +141,8 @@ public class SearchActivity extends Activity {
 				+ "&imgtype="
 				+  this.settings.imageType
 				+ "&as_sitesearch="
-				+  this.settings.siteFilter;
+				+  this.settings.siteFilter
+				+  "&start=" + page*8;
 		client.get(searchUrl, new JsonHttpResponseHandler() {
 
 			@Override
